@@ -1,0 +1,10 @@
+---
+- name: Fact dump
+  hosts: all
+  tasks:
+    - name: Print all facts
+      debug:
+        msg: |
+          The hostname is {{ ansible_facts['hostname'] }}
+          The interface is {{ ansible_facts['interfaces'] }}
+
