@@ -1,0 +1,12 @@
+---
+- name: create user accounts for all our servers
+  hosts: webservers
+  become: True
+  remote_user: ec2-user
+  vars_files:
+    - secret.yml
+  tasks:
+    - name: Creating user from secret.yml
+      user:
+        name: "{{ username }}"
+        password: "{{ pwhash }}"
